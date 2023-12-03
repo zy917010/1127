@@ -126,11 +126,8 @@ def Query_the_records():
     """
     conn = sqlite3.connect("wanghong.db")
     cursor = conn.cursor()
-    try:
-        cursor.execute("SELECT * FROM members")
-        data = cursor.fetchall()
-    except sqlite3.Error as error:
-        print(f"執行 SELECT 操作時發生錯誤：{error}")
+    cursor.execute("SELECT * FROM members")
+    data = cursor.fetchall()
     if len(data) > 0:
         print("姓名\t\t性別\t手機")
         print("-" * 29)
